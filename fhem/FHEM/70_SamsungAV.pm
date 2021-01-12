@@ -4,7 +4,7 @@
 #
 # module to send messages or commands to a Samsung TV
 #
-# written 2019 by k�lnsolar
+# written 2019 by kölnsolar
 # based on 70_STV which supports older generation of TV's. Thanks to Zwiebel.
 # extended for newer moduls. Python script samsungctl was used as reference.
 #
@@ -379,7 +379,8 @@ sub SamsungAV_Set($@)
 	    if($par < 10){$cmd = $par}
 		else {
 			$cmd = "0_macro";
-	        $par = substr($par,0,1). "," . substr($par,1,1);
+	        
+		$par = substr($par,0,1). "," . substr($par,1,1). "," . substr($par,2,1);
         }
 	}
 # App functionality for Samsung Tizen since K-Series
@@ -1072,7 +1073,7 @@ if ( $cmd eq "caller" ||
   my $tvappstring = "iphone.".$tv.".iapp.samsung"; # TV type
   my $remotename = "Perl Samsung Remote"; # What gets reported when it asks for permission/also shows in General->Wireless Remote Control menu
   
-  #### MAC überprüfen wenn nicht gültig vom attribute übernehmen.
+  #### MAC Ã¼berprÃ¼fen wenn nicht gÃ¼ltig vom attribute Ã¼bernehmen.
   if ($mymac !~ /^\w\w:\w\w:\w\w:\w\w|\w\w:\w\w:\w\w:\w\w$/) {
     Log3 $name, 3, "[SamsungAV] mymac: $mymac invalid format";
   }else{
